@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, ListItem, IconButton, ListItemText, Avatar, Divider, List, Typography, Box, ListItemIcon } from '@material-ui/core';
 import { ArrowBack, AssignmentInd, ContactMail, Home, Apps } from '@material-ui/icons';
 import avatar from '../avatar.png';
+import { Link } from 'react-router-dom';
 import MobilRightMenuSlider from '@material-ui/core/Drawer';
 
 const useStyles = makeStyles(theme => ({
@@ -25,11 +26,13 @@ const useStyles = makeStyles(theme => ({
 const menuItems = [
     {
         listIcon: <Home />,
-        listText: "Home"
+        listText: "Home",
+        listPath: "/"
     },
     {
         listIcon: <AssignmentInd />,
-        listText: "Resume"
+        listText: "Resume",
+        listPath: "/resume"
     },
     {
         listIcon: <Apps />,
@@ -59,7 +62,7 @@ const Navbar = () => {
             <Divider />
             <List>
                 {menuItems.map((lsItem, key) => (
-                    <ListItem button key={key}>
+                    <ListItem button key={key} component={Link} to={lsItem.listPath}>
                         <ListItemIcon className={classes.listItem}>{lsItem.listIcon}</ListItemIcon>
                         <ListItemText className={classes.listItem} primary={lsItem.listText} />
                     </ListItem>
@@ -80,7 +83,7 @@ const Navbar = () => {
                         <IconButton onClick={toggleSlider("right", true)}>
                             <ArrowBack style={{ color: "tomato" }} />
                         </IconButton>
-                        <Typography variant="h5" style={{ color: "#f4eabd" }}>Réda Abdelkadir Belaid</Typography>
+                        <Typography variant="h5" style={{ color: "#f4eabd" }}>Portfolio</Typography>
                         <MobilRightMenuSlider onClose={toggleSlider("right", false)} anchor="left" open={state.right} >
                             {sideList("right")}
                         </MobilRightMenuSlider>

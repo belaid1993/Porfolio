@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
     title: {
         color: "tomato"
     },
+    title2: {
+        color: "#f4eabd"
+    },
     subtitle: {
         color: "tan",
         marginBottom: "3rem"
@@ -43,10 +46,17 @@ const Header = () => {
                     typeSpeed={40}
                 />
             </Typography>
-            <br />
-            <Typography className={classes.subtitle} variant="h5">
+            <br/>
+            <Typography className={classes.title2} variant="h5">
                 <Typed
-                    strings={["Dévloppeur Web", "Java/Spring", "Spring Batch", "Js/React"]}
+                    strings={["Dévloppeur Web"]}
+                    typeSpeed={40}
+                />
+            </Typography>
+            <br />
+            <Typography className={classes.subtitle} variant="h6">
+                <Typed
+                    strings={["Java/Spring", "Spring Batch", "Js/React"]}
                     typeSpeed={40}
                     backSpeed={60}
                     loop
